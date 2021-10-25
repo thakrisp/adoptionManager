@@ -1,22 +1,17 @@
 <template>
-  <div class="bg-blue-500 text-yellow-300 text-center">Test</div>
-  <div class="grid grid-cols-3 px-6">
-    <div
-      v-for="dog in dogs"
-      :key="dog._id"
-      class="flex flex-row justify-evenly py-3"
-    >
-      <AnimalList :dog="dog" class="w-2/3 transform" />
+  <div class="flex flex-col sm:grid grid-cols-3 gap-4 pt-3 px-5" id="find">
+    <div v-for="dog in sortedByAdopted" :key="dog._id">
+      <AnimalItem :dog="dog" />
     </div>
   </div>
 </template>
 
 <script>
-import AnimalList from './AnimalList';
+import AnimalItem from '../components/AnimalItem.vue';
 export default {
   name: '',
   components: {
-    AnimalList,
+    AnimalItem,
   },
   props: {},
   data() {
@@ -24,10 +19,10 @@ export default {
       dogs: [
         {
           _id: '00001',
-          name: 'Zoey',
-          breed: 'German Shepard',
-          age: '4 Months',
-          adopted: true,
+          name: 'Axel',
+          breed: 'Pitbull',
+          age: '3 years',
+          adopted: false,
           applications: [
             {
               id: '00001',
@@ -47,9 +42,9 @@ export default {
         },
         {
           _id: '00003',
-          name: 'Tia',
-          breed: 'German Shepard Mix',
-          age: '6 Months',
+          name: 'Kovu',
+          breed: 'Husky',
+          age: '3 years',
           adopted: false,
           applications: [],
         },
@@ -70,22 +65,28 @@ export default {
         },
         {
           _id: '00002',
-          name: 'Bandit',
-          breed: 'Lab Mix',
-          age: '8 Months',
-          adopted: true,
+          name: 'Sadie',
+          breed: 'Rat mix',
+          age: '7 Months',
+          adopted: false,
           applications: [],
         },
         {
           _id: '00003',
           name: 'Tia',
-          breed: 'German Shepard Mix',
+          breed: 'Shepard Mix',
           age: '6 Months',
-          adopted: false,
+          adopted: true,
           applications: [],
         },
       ],
     };
+  },
+  computed: {
+    sortedByAdopted() {
+      let dogs = this.dogs;
+      return dogs.sort((a, b) => a.adopted - b.adopted);
+    },
   },
 };
 </script>
