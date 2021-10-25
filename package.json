@@ -5,18 +5,29 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "backend": "nodemon ./server/server.js"
   },
   "dependencies": {
     "@headlessui/vue": "^1.1.1",
-    "@vue-hero-icons/outline": "^1.7.2",
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "core-js": "^3.6.5",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
-    "vue": "^3.0.0"
+    "mongodb": "^3.6.9",
+    "mongoose": "^5.12.14",
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "^4.5.13",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "autoprefixer": "^9.8.6",
